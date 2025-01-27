@@ -1,13 +1,24 @@
 import { OAuth2Client } from "google-auth-library";
 import jwt from "jsonwebtoken";
 import User from "../models/user.model.js";
+import dotenv from "dotenv";
+
+const envFile =
+  process.env.NODE_ENV === "production"
+    ? ".env.production"
+    : ".env.development";
+
+dotenv.config({
+  path: envFile,
+});
 
 console.log("Environment Variables Check:", {
   clientId: process.env.GOOGLE_CLIENT_ID ? "Present" : "Missing",
   clientSecret: process.env.GOOGLE_CLIENT_SECRET ? "Present" : "Missing",
-  backendUrl: process.env.BACKEND_URL ? "Present" : "Missing",
   frontendUrl: process.env.FRONTEND_URL ? "Present" : "Missing",
 });
+
+console.log(process.env.FRONTEND_URL);
 
 //initializing google oauth client
 const oauth2Client = new OAuth2Client({
