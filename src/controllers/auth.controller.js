@@ -1,6 +1,5 @@
 import { OAuth2Client } from "google-auth-library";
 import jwt from "jsonwebtoken";
-import "dotenv/config";
 import User from "../models/user.model.js";
 
 console.log("Environment Variables Check:", {

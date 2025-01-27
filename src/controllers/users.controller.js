@@ -1,5 +1,4 @@
 import User from "../models/user.model.js";
-import "dotenv/config";
 
 export async function fetchUsers(req, res) {
   const { userId } = req.params;

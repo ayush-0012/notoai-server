@@ -1,4 +1,3 @@
-import "dotenv/config";
 import User from "../models/user.model.js";
 import Notes from "../models/notes.model.js";
 
