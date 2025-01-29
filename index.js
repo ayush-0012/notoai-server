@@ -19,6 +19,7 @@ dotenv.config({
 
 console.log(`Environment: ${process.env.NODE_ENV}`);
 console.log(process.env.FRONTEND_URL);
+
 const corsOptions = {
   origin: process.env.FRONTEND_URL,
   methods: ["GET", "POST", "PUT", "DELETE", "HEAD", "PATCH"],
