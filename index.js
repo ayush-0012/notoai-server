@@ -21,7 +21,10 @@ console.log(`Environment: ${process.env.NODE_ENV}`);
 console.log(process.env.FRONTEND_URL);
 
 const corsOptions = {
-  origin: process.env.FRONTEND_URL,
+  origin: [
+    process.env.FRONTEND_URL,
+    "https://notoai-server-production.up.railway.app",
+  ],
   methods: ["GET", "POST", "PUT", "DELETE", "HEAD", "PATCH"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true,
