@@ -21,10 +21,7 @@ console.log(`Environment: ${process.env.NODE_ENV}`);
 console.log(process.env.FRONTEND_URL);
 
 const corsOptions = {
-  origin: [
-    process.env.FRONTEND_URL,
-    "https://notoai-server-production.up.railway.app",
-  ],
+  origin: [process.env.FRONTEND_URL, process.env.BACKEND_URL],
   methods: ["GET", "POST", "PUT", "DELETE", "HEAD", "PATCH"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true,
@@ -40,6 +37,9 @@ app.use(cors(corsOptions));
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+app.get("/", (req, res) => {
+  res.send("server is running");
+});
 app.use("/api/users", userRoutes);
 app.use("/api/", notesRoutes);
 app.use("/api/auth", authRoutes);
